@@ -4,6 +4,29 @@ A light weight routing helper for conductor based android applications.
 
 ## Usage
 
+#### Defining routes
+
+Annotate the controllers you want registered with Journey. These will be matched based on the a dispatched
+URI path using Java regex matcher (so any valid regex is accepted.)  
+
+```java
+  @Route("/something")
+  public class SomeController extends Controller {
+    ...
+  }
+```
+
+You can can also use placeholders which extract data that will use the placeholder text as it's key.
+
+```java
+  @Route("/user/{user_uuid}")
+  public class UserController extends Controller {
+    public UserController(Bundle args) {
+      String userUuid = args.getString("user_uuid");
+    }
+  }
+```
+
 #### Hooking things up
 A journey requires a router and a list of routes that can be travelled. If you are using the 
 the annotation processor then a journey provider will be compiled for you to use.
@@ -36,9 +59,12 @@ You can add transaction interceptors to alter controller transactions before the
 router. 
 
 ```java
-    journey.addTransactionInterceptor(
-        transaction -> transaction.popChangeHandler(new HorizontalChangeHandler())
-            .pushChangeHandler(new AutoTransitionChangeHandler()));
+    new TransactionInterceptor() {
+      @Override public RouterTransaction intercept(RouterTransaction transaction) {
+        return transaction.popChangeHandler(new HorizontalChangeHandler())
+            .pushChangeHandler(new AutoTransitionChangeHandler());
+      }
+    });
 ```
 
 ## Download
