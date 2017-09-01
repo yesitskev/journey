@@ -1,6 +1,6 @@
 Change Log
 ==========
 
-Version 0.1.0 *(2017-xx-xx)*
+Version 0.1.0 *(2017-09-01)*
 ----------------------------
-Initial pre alpha release.
+Initial release.
