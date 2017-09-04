@@ -1,6 +1,6 @@
 package com.github.kevelbreh.journey;
 
-import android.support.annotation.NonNull;
+import com.github.kevelbreh.journey.Route;
 import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableSet;
 import com.squareup.javapoet.ClassName;
@@ -121,7 +121,7 @@ import static javax.tools.Diagnostic.Kind.ERROR;
     return false;
   }
 
-  @NonNull private TypeSpec createRouteProvider(List<Element> elements, String providerName) {
+  private TypeSpec createRouteProvider(List<Element> elements, String providerName) {
     ClassName list = ClassName.get("java.util", "List");
     ClassName arrayList = ClassName.get("java.util", "ArrayList");
     TypeName listOfRoutes = ParameterizedTypeName.get(list, JOURNEY_CONTROLLER_ROUTE);
