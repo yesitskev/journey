@@ -8,7 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_7
 dependencies {
   api 'com.squareup:javapoet:1.9.0'
   compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
-  api project(":journey-annotations")
+  compile project(":journey-annotations")
   api 'com.google.auto:auto-common:0.8'
   testCompile 'junit:junit:4.12'
   testCompile 'com.google.truth:truth:0.33'

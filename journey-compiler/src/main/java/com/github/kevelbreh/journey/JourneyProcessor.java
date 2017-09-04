@@ -1,6 +1,5 @@
 package com.github.kevelbreh.journey;
 
-import com.github.kevelbreh.journey.Route;
 import com.google.auto.service.AutoService;
 import com.google.common.collect.ImmutableSet;
 import com.squareup.javapoet.ClassName;
