@@ -202,7 +202,7 @@ import static javax.tools.Diagnostic.Kind.ERROR;
     TypeMirror target = elementUtils.getTypeElement(CONDUCTOR_CONTROLLER.reflectionName()).asType();
     TypeMirror mirror = element.asType();
     while (mirror.getKind() != TypeKind.NONE) {
-      if (target == mirror) {
+      if (typeUtils.isSameType(target, mirror)) {
         return true;
       }
       mirror = ((TypeElement) typeUtils.asElement(mirror)).getSuperclass();
