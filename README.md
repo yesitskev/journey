@@ -80,8 +80,8 @@ allprojects {
 }
 
 dependencies {
-  implementation 'com.github.kevelbreh.journey:journey:0.1.2'
-  annotationProcessor 'com.github.kevelbreh.journey:journey-compiler:0.1.2'
+  implementation 'com.github.kevelbreh.journey:journey:0.1.3'
+  annotationProcessor 'com.github.kevelbreh.journey:journey-compiler:0.1.3'
 }
 ```
 
