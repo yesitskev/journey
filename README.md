@@ -10,21 +10,21 @@ Annotate the controllers you want registered with Journey. These will be matched
 URI path using Java regex matcher (so any valid regex is accepted.)  
 
 ```java
-  @Route("/something")
-  public class SomeController extends Controller {
-    ...
-  }
+@Route("/something")
+public class SomeController extends Controller {
+  ...
+}
 ```
 
 You can can also use placeholders which extract data that will use the placeholder text as it's key.
 
 ```java
-  @Route("/user/{user_uuid}")
-  public class UserController extends Controller {
-    public UserController(Bundle args) {
-      String userUuid = args.getString("user_uuid");
-    }
+@Route("/user/{user_uuid}")
+public class UserController extends Controller {
+  public UserController(Bundle args) {
+    String userUuid = args.getString("user_uuid");
   }
+}
 ```
 
 #### Hooking things up
@@ -59,12 +59,12 @@ You can add transaction interceptors to alter controller transactions before the
 router. 
 
 ```java
-    new TransactionInterceptor() {
-      @Override public RouterTransaction intercept(RouterTransaction transaction) {
-        return transaction.popChangeHandler(new HorizontalChangeHandler())
-            .pushChangeHandler(new AutoTransitionChangeHandler());
-      }
-    });
+new TransactionInterceptor() {
+  @Override public RouterTransaction intercept(RouterTransaction transaction) {
+    return transaction.popChangeHandler(new HorizontalChangeHandler())
+        .pushChangeHandler(new AutoTransitionChangeHandler());
+  }
+});
 ```
 
 ## Download
